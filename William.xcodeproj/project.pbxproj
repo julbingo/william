@@ -96,6 +96,7 @@
 				TargetAttributes = {
 					818780E11E5F8247008C67F6 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = FA5XC4H279;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -258,9 +259,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = FA5XC4H279;
 				INFOPLIST_FILE = William/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.elithapps.William;
+				PRODUCT_BUNDLE_IDENTIFIER = com.elithapps.eleven;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -270,9 +273,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = FA5XC4H279;
 				INFOPLIST_FILE = William/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.elithapps.William;
+				PRODUCT_BUNDLE_IDENTIFIER = com.elithapps.eleven;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -297,6 +302,7 @@
 				818780F61E5F8247008C67F6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
