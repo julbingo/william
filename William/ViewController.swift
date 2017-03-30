@@ -55,12 +55,20 @@ enum weightUSA {
 }
 
 class ViewController: UIViewController {
+    @IBOutlet weak var tempImage: UIImageView!
+    @IBOutlet weak var distanceImage: UIImageView!
+    @IBOutlet weak var volumeImage: UIImageView!
+    @IBOutlet weak var weightImage: UIImageView!
+    
+    @IBOutlet weak var resultView: UIView!    
     
     @IBOutlet weak var switchLabel: UIButton!
+    
     @IBOutlet weak var weightLabel: UIButton!
     @IBOutlet weak var volumeLabel: UIButton!
     @IBOutlet weak var distanceLabel: UIButton!
     @IBOutlet weak var tempLabel: UIButton!
+    
     @IBOutlet weak var mainLabel: UILabel!
     @IBOutlet weak var tempLabel1: UILabel!
     @IBOutlet weak var tempSublabel1: UILabel!
@@ -96,6 +104,13 @@ class ViewController: UIViewController {
     var currentVolumeUSA:volumeUSA = .cups
     var currentWeightUSA:weightUSA = .lbp
     var havingFraction:Bool = false
+    
+    var resultViewColorUSA:UIColor = UIColor(red: 0/255, green: 22/255, blue: 52/255, alpha: 1)
+    var resultViewColorMETRIC:UIColor = UIColor(red: 52/255, green: 6/255, blue: 15/255, alpha: 1)
+    var switchButtonColorUSA:UIColor = UIColor(red: 0/255, green: 46/255, blue: 104/255, alpha: 1)
+    var switchButtonColorMETRIC:UIColor = UIColor(red: 103/255, green: 15/255, blue: 31/255, alpha: 1)
+    var tintColorUSA:UIColor = UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1)
+    var tintColorMETRIC:UIColor = UIColor(red: 255/255, green: 45/255, blue: 85/255, alpha: 1)
     
     
     override func viewDidLoad() {
@@ -487,7 +502,31 @@ class ViewController: UIViewController {
     @IBAction func didPressSwitch(_ sender: Any) {
         if (currentDirection == .SWEtoUSA) {
             currentDirection = .USAtoSWE
-            switchLabel.setTitle("USA to METRIC", for: .normal)
+//            switchLabel.setTitle("USA to METRIC", for: .normal)
+            
+            // CHANGE UI COLORS
+            switchLabel.setImage(#imageLiteral(resourceName: "Switch2"), for: .normal)
+            tempImage.image = #imageLiteral(resourceName: "Temp2")
+            distanceImage.image = #imageLiteral(resourceName: "Ruler2")
+            volumeImage.image = #imageLiteral(resourceName: "Drop2")
+            weightImage.image = #imageLiteral(resourceName: "Weight2")
+            resultView.backgroundColor = resultViewColorMETRIC
+            tempLabel.backgroundColor = switchButtonColorUSA
+            distanceLabel.backgroundColor = switchButtonColorUSA
+            volumeLabel.backgroundColor = switchButtonColorUSA
+            weightLabel.backgroundColor = switchButtonColorUSA
+            tempSublabel1.textColor = tintColorMETRIC
+            tempSublabel2.textColor = tintColorMETRIC
+            distanceSublabel1.textColor = tintColorMETRIC
+            distanceSublabel2.textColor = tintColorMETRIC
+            distanceSublabel3.textColor = tintColorMETRIC
+            volumeSublabel1.textColor = tintColorMETRIC
+            volumeSublabel2.textColor = tintColorMETRIC
+            volumeSublabel3.textColor = tintColorMETRIC
+            weightSublabel1.textColor = tintColorMETRIC
+            weightSublabel2.textColor = tintColorMETRIC
+            weightSublabel3.textColor = tintColorMETRIC
+            
             
             tempLabel.setTitle("°F", for: .normal)
             
@@ -518,7 +557,29 @@ class ViewController: UIViewController {
             
         } else {
             currentDirection = .SWEtoUSA
-            switchLabel.setTitle("METRIC to USA", for: .normal)
+//            switchLabel.setTitle("METRIC to USA", for: .normal)
+            // CHANGE UI COLORS
+            switchLabel.setImage(#imageLiteral(resourceName: "Switch1"), for: .normal)
+            tempImage.image = #imageLiteral(resourceName: "Temp1")
+            distanceImage.image = #imageLiteral(resourceName: "Ruler1")
+            volumeImage.image = #imageLiteral(resourceName: "Drop1")
+            weightImage.image = #imageLiteral(resourceName: "Weight1")
+            resultView.backgroundColor = resultViewColorUSA
+            tempLabel.backgroundColor = switchButtonColorMETRIC
+            distanceLabel.backgroundColor = switchButtonColorMETRIC
+            volumeLabel.backgroundColor = switchButtonColorMETRIC
+            weightLabel.backgroundColor = switchButtonColorMETRIC
+            tempSublabel1.textColor = tintColorUSA
+            tempSublabel2.textColor = tintColorUSA
+            distanceSublabel1.textColor = tintColorUSA
+            distanceSublabel2.textColor = tintColorUSA
+            distanceSublabel3.textColor = tintColorUSA
+            volumeSublabel1.textColor = tintColorUSA
+            volumeSublabel2.textColor = tintColorUSA
+            volumeSublabel3.textColor = tintColorUSA
+            weightSublabel1.textColor = tintColorUSA
+            weightSublabel2.textColor = tintColorUSA
+            weightSublabel3.textColor = tintColorUSA
             
             if (currentTempSWE == .plusC) {
                 tempLabel.setTitle("+ °C", for: .normal)
@@ -669,7 +730,10 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
+    }
 
 }
 
