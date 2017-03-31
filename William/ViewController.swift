@@ -94,7 +94,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var weightSublabel3: UILabel!
     
     var labelString:String = "0"
-    var currentNumbers:Float = 0
+    var currentNumbers:Double = 0
     var currentDirection:direction = .SWEtoUSA
     var currentTempSWE:tempSWE = .plusC
     var currentDistanceSWE:distanceSWE = .cm
@@ -119,7 +119,7 @@ class ViewController: UIViewController {
         
         /********** ADJUSTING KERNING
         let attributedString = NSMutableAttributedString(string: "384")
-        attributedString.addAttribute(NSKernAttributeName, value: CGFloat(-4.0), range: NSRange(location: 0, length: 3))
+        attributedString.addAttribute(NSKernAttributeName, value: CGDouble(-4.0), range: NSRange(location: 0, length: 3))
         mainLabel.attributedText = attributedString
         ***********/
         
@@ -280,15 +280,15 @@ class ViewController: UIViewController {
     
     func updateText() {
         
-        guard let labelFloat:Float = Float(labelString) else {
+        guard let labelDouble:Double = Double(labelString) else {
             return
         }
         
-        currentNumbers = labelFloat
+        currentNumbers = labelDouble
         
         let formatter:NumberFormatter = NumberFormatter()
         formatter.numberStyle = .decimal
-        var numx:NSNumber = NSNumber(value: labelFloat)
+        var numx:NSNumber = NSNumber(value: labelDouble)
         
         if (havingFraction) {
             mainLabel.text = formatter.string(from: numx)
@@ -305,140 +305,140 @@ class ViewController: UIViewController {
         
         // --- Calculate Temperatures
         
-        var temp1:Float = 0
-        var temp2:Float = 0
-        var distance1:Float = 0
-        var distance2:Float = 0
-        var distance3:Float = 0
-        var volume1:Float = 0
-        var volume2:Float = 0
-        var volume3:Float = 0
-        var weight1:Float = 0
-        var weight2:Float = 0
-        var weight3:Float = 0
+        var temp1:Double = 0
+        var temp2:Double = 0
+        var distance1:Double = 0
+        var distance2:Double = 0
+        var distance3:Double = 0
+        var volume1:Double = 0
+        var volume2:Double = 0
+        var volume3:Double = 0
+        var weight1:Double = 0
+        var weight2:Double = 0
+        var weight3:Double = 0
         
         // ******** Swedish format translated to USA format
         if (currentDirection == .SWEtoUSA) {
             
             // Temperature
             if (currentTempSWE == .plusC) {
-                temp1 = labelFloat * 1.8 + 32 // Celcius to Fahrenheit
-                temp2 = labelFloat + 273.15 // Celcius to Kelvin
+                temp1 = labelDouble * 1.8 + 32 // Celcius to Fahrenheit
+                temp2 = labelDouble + 273.15 // Celcius to Kelvin
             } else {
-                temp1 = -labelFloat * 1.8 + 32 // Celcius to Fahrenheit
-                temp2 = -labelFloat + 273.15 // Celcius to Kelvin
+                temp1 = -labelDouble * 1.8 + 32 // Celcius to Fahrenheit
+                temp2 = -labelDouble + 273.15 // Celcius to Kelvin
             }
             
             // Distance
             if (currentDistanceSWE == .cm) {
-                distance1 = labelFloat / 2.54 // cm to inches
-                distance2 = labelFloat / 30.48 // cm to feet
-                distance3 = labelFloat / 91.44 // cm to yards
+                distance1 = labelDouble / 2.54 // cm to inches
+                distance2 = labelDouble / 30.48 // cm to feet
+                distance3 = labelDouble / 91.44 // cm to yards
             } else if (currentDistanceSWE == .m) {
-                distance1 = labelFloat * 39.37 // m to inches
-                distance2 = labelFloat * 3.28 // m to feet
-                distance3 = labelFloat * 1.0936 // m to yards
+                distance1 = labelDouble * 39.37 // m to inches
+                distance2 = labelDouble * 3.28 // m to feet
+                distance3 = labelDouble * 1.0936 // m to yards
                 
             } else if (currentDistanceSWE == .km) {
-                distance1 = labelFloat * 1093.61 // km to yards
-                distance2 = labelFloat * 0.621371 // km to miles
-                distance3 = labelFloat * 0.53996 // km to nautical miles
+                distance1 = labelDouble * 1093.61 // km to yards
+                distance2 = labelDouble * 0.621371 // km to miles
+                distance3 = labelDouble * 0.53996 // km to nautical miles
                 
             }
             
             // Volume
             if (currentVolumeSWE == .ml) {
-                volume1 = labelFloat * 0.033333333333333 // ml to fluid oz
-                volume2 = labelFloat * 0.0042267528 // ml to cups
-                volume3 = labelFloat * 0.001056688209 // ml to quarts
+                volume1 = labelDouble * 0.033333333333333 // ml to fluid oz
+                volume2 = labelDouble * 0.0042267528 // ml to cups
+                volume3 = labelDouble * 0.001056688209 // ml to quarts
                 
             } else if (currentVolumeSWE == .dl) {
-                volume1 = labelFloat * 3.3333333333333 // dl to fluid oz
-                volume2 = labelFloat * 0.422675281986 // dl to cups
-                volume3 = labelFloat * 0.105668820943 // dl to quarts
+                volume1 = labelDouble * 3.3333333333333 // dl to fluid oz
+                volume2 = labelDouble * 0.422675281986 // dl to cups
+                volume3 = labelDouble * 0.105668820943 // dl to quarts
                 
             } else if (currentVolumeSWE == .l) {
-                volume1 = labelFloat * 4.226753 // liters to cups
-                volume2 = labelFloat * 1.056688 // liters to quarts
-                volume3 = labelFloat * 0.2641720 // liters to gallons
+                volume1 = labelDouble * 4.226753 // liters to cups
+                volume2 = labelDouble * 1.056688 // liters to quarts
+                volume3 = labelDouble * 0.2641720 // liters to gallons
                 
             }
             
             // Weight
             if (currentWeightSWE == .g) {
-                weight1 = labelFloat * 0.035274 // g to oz
-                weight2 = labelFloat * 0.00220462262 // g to lb
-                weight3 = labelFloat * 0.000001102311 // g to US tons
+                weight1 = labelDouble * 0.035274 // g to oz
+                weight2 = labelDouble * 0.00220462262 // g to lb
+                weight3 = labelDouble * 0.000001102311 // g to US tons
                 
             } else if (currentWeightSWE == .kg) {
-                weight1 = labelFloat * 35.27396195 // kg to oz
-                weight2 = labelFloat * 2.204623 // kg to lb
-                weight3 = labelFloat * 0.001102311 // kg to US tons
+                weight1 = labelDouble * 35.27396195 // kg to oz
+                weight2 = labelDouble * 2.204623 // kg to lb
+                weight3 = labelDouble * 0.001102311 // kg to US tons
                 
             } else if (currentWeightSWE == .tons) {
-                weight1 = labelFloat * 35273.96 // tons to oz
-                weight2 = labelFloat * 2204.623 // tons to lb
-                weight3 = labelFloat * 1.102311 // tons to US tons
+                weight1 = labelDouble * 35273.96 // tons to oz
+                weight2 = labelDouble * 2204.623 // tons to lb
+                weight3 = labelDouble * 1.102311 // tons to US tons
                 
             }
             
         } else { // ******** USA format translated to SWE format
             
             // Temperature
-            temp1 = (labelFloat - 32) * 5 / 9 // Fahrenheit to Celsius
-            temp2 = (labelFloat + 459.67) * 5 / 9 // Fahrenheit to Kelvins
+            temp1 = (labelDouble - 32) * 5 / 9 // Fahrenheit to Celsius
+            temp2 = (labelDouble + 459.67) * 5 / 9 // Fahrenheit to Kelvins
             
             // Distance
             if (currentDistanceUSA == .inches) {
-                distance1 = labelFloat * 2.54 // inches to cm
-                distance2 = labelFloat * 0.0254 // inches to m
-                distance3 = labelFloat * 0.0000254 // inches to km
+                distance1 = labelDouble * 2.54 // inches to cm
+                distance2 = labelDouble * 0.0254 // inches to m
+                distance3 = labelDouble * 0.0000254 // inches to km
                 
             } else if (currentDistanceUSA == .feet) {
-                distance1 = labelFloat * 30.48 // feet to cm
-                distance2 = labelFloat * 0.3048 // feet to m
-                distance3 = labelFloat * 0.0003048 // feet to km
+                distance1 = labelDouble * 30.48 // feet to cm
+                distance2 = labelDouble * 0.3048 // feet to m
+                distance3 = labelDouble * 0.0003048 // feet to km
                 
             } else if (currentDistanceUSA == .miles) {
-                distance1 = labelFloat * 160934.4 // miles to cm
-                distance2 = labelFloat * 1609.344 // miles to m
-                distance3 = labelFloat * 1.609344 // miles to km
+                distance1 = labelDouble * 160934.4 // miles to cm
+                distance2 = labelDouble * 1609.344 // miles to m
+                distance3 = labelDouble * 1.609344 // miles to km
                 
             }
             
             // Volume
             if (currentVolumeUSA == .cups) {
-                volume1 = labelFloat * 236.5882 // cups to ml
-                volume2 = labelFloat * 2.365882375 // cups to dl
-                volume3 = labelFloat * 0.2365882 // cups to liters
+                volume1 = labelDouble * 236.5882 // cups to ml
+                volume2 = labelDouble * 2.365882375 // cups to dl
+                volume3 = labelDouble * 0.2365882 // cups to liters
                 
             } else if (currentVolumeUSA == .quartz) {
-                volume1 = labelFloat * 946.3530 // quarts to ml
-                volume2 = labelFloat * 9.46352946 // quarts to dl
-                volume3 = labelFloat * 0.9463530 // quarts to liters
+                volume1 = labelDouble * 946.3530 // quarts to ml
+                volume2 = labelDouble * 9.46352946 // quarts to dl
+                volume3 = labelDouble * 0.9463530 // quarts to liters
                 
             } else if (currentVolumeUSA == .gallons) {
-                volume1 = labelFloat * 3785.412 // gallons to ml
-                volume2 = labelFloat * 37.854118 // gallons to dl
-                volume3 = labelFloat * 3.78541 // gallons to liters
+                volume1 = labelDouble * 3785.412 // gallons to ml
+                volume2 = labelDouble * 37.854118 // gallons to dl
+                volume3 = labelDouble * 3.78541 // gallons to liters
                 
             }
             
             // Weight
             if (currentWeightUSA == .oz) {
-                weight1 = labelFloat * 28.34952 // oz to g
-                weight2 = labelFloat * 0.02834952 // oz to kg
-                weight3 = labelFloat * 0.00002834952 // oz to tons
+                weight1 = labelDouble * 28.34952 // oz to g
+                weight2 = labelDouble * 0.02834952 // oz to kg
+                weight3 = labelDouble * 0.00002834952 // oz to tons
                 
             } else if (currentWeightUSA == .lbp) {
-                weight1 = labelFloat * 453.5923 // lb to g
-                weight2 = labelFloat * 0.4535923 // lb to kg
-                weight3 = labelFloat * 0.0004535923 // lb to tons
+                weight1 = labelDouble * 453.5923 // lb to g
+                weight2 = labelDouble * 0.4535923 // lb to kg
+                weight3 = labelDouble * 0.0004535923 // lb to tons
                 
             } else if (currentWeightUSA == .usTons) {
-                weight1 = labelFloat * 907184.7 // ustons to g
-                weight2 = labelFloat * 907.1847 // ustons to kg
-                weight3 = labelFloat * 0.9071847 // ustons to tons
+                weight1 = labelDouble * 907184.7 // ustons to g
+                weight2 = labelDouble * 907.1847 // ustons to kg
+                weight3 = labelDouble * 0.9071847 // ustons to tons
                 
             }
             
