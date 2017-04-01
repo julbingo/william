@@ -147,6 +147,8 @@ class ViewController: UIViewController {
         button8.titleEdgeInsets = UIEdgeInsets(top: 4, left: 0, bottom: 0, right: 0)
         button9.titleEdgeInsets = UIEdgeInsets(top: 4, left: 0, bottom: 0, right: 0)
         
+        
+        
         mainLabel.baselineAdjustment = .alignCenters
         
         updateText()
@@ -337,13 +339,15 @@ class ViewController: UIViewController {
             
         }
         mainLabel.text = newLabel
-        
-        
-        
+
         // Kerning the main label
-        let attributedString = NSMutableAttributedString(string: mainLabel.text!)
-        attributedString.addAttribute(NSKernAttributeName, value: CGFloat(-4.0), range: NSRange(location: 0, length: attributedString.length))
-        mainLabel.attributedText = attributedString
+        mainLabel.attributedText = kernLabel(label: mainLabel, kernValue: -4.0)
+        
+ 
+        // Kerning the main label
+//        let attributedString = NSMutableAttributedString(string: mainLabel.text!)
+//        attributedString.addAttribute(NSKernAttributeName, value: CGFloat(-4.0), range: NSRange(location: 0, length: attributedString.length))
+//        mainLabel.attributedText = attributedString
         
 
         
@@ -522,6 +526,29 @@ class ViewController: UIViewController {
         numx = NSNumber(value: weight3)
         weightLabel3.text = formatter.string(from: numx)
 
+        
+        //Kerning all result labels
+        tempLabel1.attributedText = kernLabel(label: tempLabel1, kernValue: -1.0)
+        tempLabel2.attributedText = kernLabel(label: tempLabel2, kernValue: -1.0)
+        distanceLabel1.attributedText = kernLabel(label: distanceLabel1, kernValue: -1.0)
+        distanceLabel2.attributedText = kernLabel(label: distanceLabel2, kernValue: -1.0)
+        distanceLabel3.attributedText = kernLabel(label: distanceLabel3, kernValue: -1.0)
+        volumeLabel1.attributedText = kernLabel(label: volumeLabel1, kernValue: -1.0)
+        volumeLabel2.attributedText = kernLabel(label: volumeLabel2, kernValue: -1.0)
+        volumeLabel3.attributedText = kernLabel(label: volumeLabel3, kernValue: -1.0)
+        weightLabel1.attributedText = kernLabel(label: weightLabel1, kernValue: -1.0)
+        weightLabel2.attributedText = kernLabel(label: weightLabel2, kernValue: -1.0)
+        weightLabel3.attributedText = kernLabel(label: weightLabel3, kernValue: -1.0)
+
+        
+    }
+    
+    func kernLabel(label: UILabel, kernValue: Float) -> NSMutableAttributedString {
+        
+        let attributedString = NSMutableAttributedString(string: label.text!)
+        attributedString.addAttribute(NSKernAttributeName, value: CGFloat(kernValue), range: NSRange(location: 0, length: attributedString.length))
+        
+        return attributedString
         
     }
     
