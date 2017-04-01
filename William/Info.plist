@@ -19,7 +19,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>2</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
@@ -29,6 +29,13 @@
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
+	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>DINNextLTPro-Bold.otf</string>
+		<string>DINNextLTPro-BoldCondensed.otf</string>
+		<string>DINNextLTPro-Regular.otf</string>
+		<string>DINNextLTPro-MediumCond.otf</string>
 	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>

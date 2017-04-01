@@ -93,6 +93,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var weightLabel3: UILabel!
     @IBOutlet weak var weightSublabel3: UILabel!
     
+    @IBOutlet weak var button0: UIButton!
+    @IBOutlet weak var button1: UIButton!
+    @IBOutlet weak var button2: UIButton!
+    @IBOutlet weak var button3: UIButton!
+    @IBOutlet weak var button4: UIButton!
+    @IBOutlet weak var button5: UIButton!
+    @IBOutlet weak var button6: UIButton!
+    @IBOutlet weak var button7: UIButton!
+    @IBOutlet weak var button8: UIButton!
+    @IBOutlet weak var button9: UIButton!
+    
+    
     var labelString:String = "0"
     var currentNumbers:Double = 0
     var currentDirection:direction = .SWEtoUSA
@@ -124,7 +136,18 @@ class ViewController: UIViewController {
         ***********/
         
         
+        button0.titleEdgeInsets = UIEdgeInsets(top: 4, left: 0, bottom: 0, right: 0)
+        button1.titleEdgeInsets = UIEdgeInsets(top: 4, left: 0, bottom: 0, right: 0)
+        button2.titleEdgeInsets = UIEdgeInsets(top: 4, left: 0, bottom: 0, right: 0)
+        button3.titleEdgeInsets = UIEdgeInsets(top: 4, left: 0, bottom: 0, right: 0)
+        button4.titleEdgeInsets = UIEdgeInsets(top: 4, left: 0, bottom: 0, right: 0)
+        button5.titleEdgeInsets = UIEdgeInsets(top: 4, left: 0, bottom: 0, right: 0)
+        button6.titleEdgeInsets = UIEdgeInsets(top: 4, left: 0, bottom: 0, right: 0)
+        button7.titleEdgeInsets = UIEdgeInsets(top: 4, left: 0, bottom: 0, right: 0)
+        button8.titleEdgeInsets = UIEdgeInsets(top: 4, left: 0, bottom: 0, right: 0)
+        button9.titleEdgeInsets = UIEdgeInsets(top: 4, left: 0, bottom: 0, right: 0)
         
+        mainLabel.baselineAdjustment = .alignCenters
         
         updateText()
         
@@ -143,7 +166,7 @@ class ViewController: UIViewController {
                 
             } else {
                 
-                tempLabel.setTitle("— °C", for: .normal)
+                tempLabel.setTitle("- °C", for: .normal)
             }
         } else {
             tempSublabel1.text = "°C"
@@ -155,36 +178,36 @@ class ViewController: UIViewController {
     func updateDistance() {
         if (currentDirection == .SWEtoUSA) {
             if (currentDistanceSWE == .m) {
-                distanceLabel.setTitle("m", for: .normal)
+                distanceLabel.setTitle("METERS", for: .normal)
                 distanceSublabel1.text = "inches"
                 distanceSublabel2.text = "feet"
                 distanceSublabel3.text = "yards"
             } else if (currentDistanceSWE == .km) {
-                distanceLabel.setTitle("km", for: .normal)
+                distanceLabel.setTitle("KM", for: .normal)
                 distanceSublabel1.text = "yards"
                 distanceSublabel2.text = "miles"
                 distanceSublabel3.text = "naut. miles"
             } else if (currentDistanceSWE == .cm) {
-                distanceLabel.setTitle("cm", for: .normal)
+                distanceLabel.setTitle("CM", for: .normal)
                 distanceSublabel1.text = "inches"
                 distanceSublabel2.text = "feet"
                 distanceSublabel3.text = "yards"
             }
         } else {
             if (currentDistanceUSA == .feet) {
-                distanceLabel.setTitle("feet", for: .normal)
+                distanceLabel.setTitle("FEET", for: .normal)
                 distanceSublabel1.text = "cm"
                 distanceSublabel2.text = "meter"
                 distanceSublabel3.text = "km"
                 
             } else if (currentDistanceUSA == .miles) {
-                distanceLabel.setTitle("miles", for: .normal)
+                distanceLabel.setTitle("MILES", for: .normal)
                 distanceSublabel1.text = "cm"
                 distanceSublabel2.text = "meter"
                 distanceSublabel3.text = "km"
                 
             } else if (currentDistanceUSA == .inches) {
-                distanceLabel.setTitle("inches", for: .normal)
+                distanceLabel.setTitle("INCHES", for: .normal)
                 distanceSublabel1.text = "cm"
                 distanceSublabel2.text = "meter"
                 distanceSublabel3.text = "km"
@@ -197,36 +220,36 @@ class ViewController: UIViewController {
     func updateVolume() {
         if (currentDirection == .SWEtoUSA) {
             if (currentVolumeSWE == .dl) {
-                volumeLabel.setTitle("dl", for: .normal)
+                volumeLabel.setTitle("DL", for: .normal)
                 volumeSublabel1.text = "fl. oz"
                 volumeSublabel2.text = "cups"
                 volumeSublabel3.text = "quarts"
             } else if (currentVolumeSWE == .l) {
-                volumeLabel.setTitle("liters", for: .normal)
+                volumeLabel.setTitle("LITERS", for: .normal)
                 volumeSublabel1.text = "cups"
                 volumeSublabel2.text = "quarts"
                 volumeSublabel3.text = "gallons"
             } else if (currentVolumeSWE == .ml) {
-                volumeLabel.setTitle("ml", for: .normal)
+                volumeLabel.setTitle("ML", for: .normal)
                 volumeSublabel1.text = "fl. oz"
                 volumeSublabel2.text = "cups"
                 volumeSublabel3.text = "quarts"
             }
         } else {
             if (currentVolumeUSA == .quartz) {
-                volumeLabel.setTitle("quarts", for: .normal)
+                volumeLabel.setTitle("QUARTS", for: .normal)
                 volumeSublabel1.text = "ml"
                 volumeSublabel2.text = "dl"
                 volumeSublabel3.text = "liter"
                 
             } else if (currentVolumeUSA == .gallons) {
-                volumeLabel.setTitle("gallons", for: .normal)
+                volumeLabel.setTitle("GALLONS", for: .normal)
                 volumeSublabel1.text = "ml"
                 volumeSublabel2.text = "dl"
                 volumeSublabel3.text = "liter"
                 
             } else if (currentVolumeUSA == .cups) {
-                volumeLabel.setTitle("cups", for: .normal)
+                volumeLabel.setTitle("CUPS", for: .normal)
                 volumeSublabel1.text = "ml"
                 volumeSublabel2.text = "dl"
                 volumeSublabel3.text = "liter"
@@ -239,36 +262,36 @@ class ViewController: UIViewController {
     func updateWeight() {
         if (currentDirection == .SWEtoUSA) {
             if (currentWeightSWE == .kg) {
-                weightLabel.setTitle("kg", for: .normal)
+                weightLabel.setTitle("KG", for: .normal)
                 weightSublabel1.text = "oz"
                 weightSublabel2.text = "lb"
                 weightSublabel3.text = "US tons"
             } else if (currentWeightSWE == .tons) {
-                weightLabel.setTitle("tons", for: .normal)
+                weightLabel.setTitle("TONS", for: .normal)
                 weightSublabel1.text = "oz"
                 weightSublabel2.text = "lb"
                 weightSublabel3.text = "US tons"
             } else if (currentWeightSWE == .g) {
-                weightLabel.setTitle("g", for: .normal)
+                weightLabel.setTitle("GRAMS", for: .normal)
                 weightSublabel1.text = "oz"
                 weightSublabel2.text = "lb"
                 weightSublabel3.text = "US tons"
             }
         } else {
             if (currentWeightUSA == .lbp) {
-                weightLabel.setTitle("lb", for: .normal)
+                weightLabel.setTitle("LB", for: .normal)
                 weightSublabel1.text = "g"
                 weightSublabel2.text = "kg"
                 weightSublabel3.text = "tons"
                 
             } else if (currentWeightUSA == .usTons) {
-                weightLabel.setTitle("US tons", for: .normal)
+                weightLabel.setTitle("US TONS", for: .normal)
                 weightSublabel1.text = "g"
                 weightSublabel2.text = "kg"
                 weightSublabel3.text = "tons"
                 
             } else if (currentWeightUSA == .oz) {
-                weightLabel.setTitle("oz", for: .normal)
+                weightLabel.setTitle("OZ", for: .normal)
                 weightSublabel1.text = "g"
                 weightSublabel2.text = "kg"
                 weightSublabel3.text = "tons"
@@ -277,6 +300,10 @@ class ViewController: UIViewController {
         }
         
     }
+    
+    
+
+
     
     func updateText() {
         
@@ -289,17 +316,39 @@ class ViewController: UIViewController {
         let formatter:NumberFormatter = NumberFormatter()
         formatter.numberStyle = .decimal
         var numx:NSNumber = NSNumber(value: labelDouble)
+        var newLabel: String = ""
+        
+        
+        
         
         if (havingFraction) {
-            mainLabel.text = formatter.string(from: numx)
-            mainLabel.text = mainLabel.text?.appending(".")
+            newLabel = formatter.string(from: numx)!
+            newLabel = (mainLabel.text?.appending("."))!
+//            mainLabel.text = formatter.string(from: numx)
+//            mainLabel.text = mainLabel.text?.appending(".")
+            
+
+            
             havingFraction = false
         } else {
-            mainLabel.text = formatter.string(from: numx)
+//            mainLabel.text = formatter.string(from: numx)
+            newLabel = formatter.string(from: numx)!
+            
+            
         }
+        mainLabel.text = newLabel
         
+        
+        
+        // Kerning the main label
+        let attributedString = NSMutableAttributedString(string: mainLabel.text!)
+        attributedString.addAttribute(NSKernAttributeName, value: CGFloat(-4.0), range: NSRange(location: 0, length: attributedString.length))
+        mainLabel.attributedText = attributedString
         
 
+        
+        
+        
         
         formatter.maximumFractionDigits = 1
         
@@ -531,27 +580,27 @@ class ViewController: UIViewController {
             tempLabel.setTitle("°F", for: .normal)
             
             if (currentDistanceUSA == .inches) {
-                distanceLabel.setTitle("inches", for: .normal)
+                distanceLabel.setTitle("INCHES", for: .normal)
             } else if (currentDistanceUSA == .feet) {
-                distanceLabel.setTitle("feet", for: .normal)
+                distanceLabel.setTitle("FEET", for: .normal)
             } else {
-                distanceLabel.setTitle("miles", for: .normal)
+                distanceLabel.setTitle("MILES", for: .normal)
             }
             
             if (currentVolumeUSA == .quartz) {
-                volumeLabel.setTitle("quarts", for: .normal)
+                volumeLabel.setTitle("QUARTS", for: .normal)
             } else if (currentVolumeUSA == .cups) {
-                volumeLabel.setTitle("cups", for: .normal)
+                volumeLabel.setTitle("CUPS", for: .normal)
             } else {
-                volumeLabel.setTitle("gallons", for: .normal)
+                volumeLabel.setTitle("GALLONS", for: .normal)
             }
             
             if (currentWeightUSA == .oz) {
-                weightLabel.setTitle("oz", for: .normal)
+                weightLabel.setTitle("OZ", for: .normal)
             } else if (currentWeightUSA == .lbp) {
-                weightLabel.setTitle("lb", for: .normal)
+                weightLabel.setTitle("LB", for: .normal)
             } else {
-                weightLabel.setTitle("US tons", for: .normal)
+                weightLabel.setTitle("US TONS", for: .normal)
             }
             
             
@@ -583,32 +632,33 @@ class ViewController: UIViewController {
             
             if (currentTempSWE == .plusC) {
                 tempLabel.setTitle("+ °C", for: .normal)
+//                tempLabel.titleEdgeInsets = UIEdgeInsets(top: 0, left: 20.0, bottom: 0, right: 0)
             } else {
                 tempLabel.setTitle("— °C", for: .normal)
             }
             
             if (currentDistanceSWE == .cm) {
-                distanceLabel.setTitle("cm", for: .normal)
+                distanceLabel.setTitle("CM", for: .normal)
             } else if (currentDistanceSWE == .m) {
-                distanceLabel.setTitle("meter", for: .normal)
+                distanceLabel.setTitle("METER", for: .normal)
             } else {
-                distanceLabel.setTitle("km", for: .normal)
+                distanceLabel.setTitle("KM", for: .normal)
             }
             
             if (currentVolumeSWE == .ml) {
-                volumeLabel.setTitle("ml", for: .normal)
+                volumeLabel.setTitle("ML", for: .normal)
             } else if (currentVolumeSWE == .dl) {
-                volumeLabel.setTitle("dl", for: .normal)
+                volumeLabel.setTitle("DL", for: .normal)
             } else {
-                volumeLabel.setTitle("liters", for: .normal)
+                volumeLabel.setTitle("LITERS", for: .normal)
             }
             
             if (currentWeightSWE == .g) {
-                weightLabel.setTitle("g", for: .normal)
+                weightLabel.setTitle("G", for: .normal)
             } else if (currentWeightSWE == .kg) {
-                weightLabel.setTitle("kg", for: .normal)
+                weightLabel.setTitle("KG", for: .normal)
             } else {
-                weightLabel.setTitle("tons", for: .normal)
+                weightLabel.setTitle("TONS", for: .normal)
             }
             
         }

@@ -12,6 +12,10 @@
 		818780EB1E5F8247008C67F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 818780E91E5F8247008C67F6 /* Main.storyboard */; };
 		818780ED1E5F8247008C67F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 818780EC1E5F8247008C67F6 /* Assets.xcassets */; };
 		818780F01E5F8247008C67F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 818780EE1E5F8247008C67F6 /* LaunchScreen.storyboard */; };
+		81C8A56B1E8DE94C0046864F /* DINNextLTPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 81C8A5681E8DE94C0046864F /* DINNextLTPro-Bold.otf */; };
+		81C8A56C1E8DE94C0046864F /* DINNextLTPro-BoldCondensed.otf in Resources */ = {isa = PBXBuildFile; fileRef = 81C8A5691E8DE94C0046864F /* DINNextLTPro-BoldCondensed.otf */; };
+		81C8A56D1E8DE94C0046864F /* DINNextLTPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 81C8A56A1E8DE94C0046864F /* DINNextLTPro-Regular.otf */; };
+		81C8A56F1E8DEBA50046864F /* DINNextLTPro-MediumCond.otf in Resources */ = {isa = PBXBuildFile; fileRef = 81C8A56E1E8DEB950046864F /* DINNextLTPro-MediumCond.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		818780EC1E5F8247008C67F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		818780EF1E5F8247008C67F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		818780F11E5F8247008C67F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		81C8A5681E8DE94C0046864F /* DINNextLTPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINNextLTPro-Bold.otf"; sourceTree = "<group>"; };
+		81C8A5691E8DE94C0046864F /* DINNextLTPro-BoldCondensed.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINNextLTPro-BoldCondensed.otf"; sourceTree = "<group>"; };
+		81C8A56A1E8DE94C0046864F /* DINNextLTPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINNextLTPro-Regular.otf"; sourceTree = "<group>"; };
+		81C8A56E1E8DEB950046864F /* DINNextLTPro-MediumCond.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINNextLTPro-MediumCond.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +46,7 @@
 		818780D91E5F8246008C67F6 = {
 			isa = PBXGroup;
 			children = (
+				81C8A5671E8DE94C0046864F /* Resources */,
 				818780E41E5F8247008C67F6 /* William */,
 				818780E31E5F8247008C67F6 /* Products */,
 			);
@@ -62,6 +71,17 @@
 				818780F11E5F8247008C67F6 /* Info.plist */,
 			);
 			path = William;
+			sourceTree = "<group>";
+		};
+		81C8A5671E8DE94C0046864F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				81C8A5681E8DE94C0046864F /* DINNextLTPro-Bold.otf */,
+				81C8A5691E8DE94C0046864F /* DINNextLTPro-BoldCondensed.otf */,
+				81C8A56E1E8DEB950046864F /* DINNextLTPro-MediumCond.otf */,
+				81C8A56A1E8DE94C0046864F /* DINNextLTPro-Regular.otf */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,8 +144,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81C8A56F1E8DEBA50046864F /* DINNextLTPro-MediumCond.otf in Resources */,
 				818780F01E5F8247008C67F6 /* LaunchScreen.storyboard in Resources */,
+				81C8A56D1E8DE94C0046864F /* DINNextLTPro-Regular.otf in Resources */,
 				818780ED1E5F8247008C67F6 /* Assets.xcassets in Resources */,
+				81C8A56B1E8DE94C0046864F /* DINNextLTPro-Bold.otf in Resources */,
+				81C8A56C1E8DE94C0046864F /* DINNextLTPro-BoldCondensed.otf in Resources */,
 				818780EB1E5F8247008C67F6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
