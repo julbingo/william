@@ -142,7 +142,8 @@ class ViewController: UIViewController {
     var currentWeightUSA:weightUSA = .lbp
     var havingFraction:Bool = false
     
-    var resultViewColorUSA:UIColor = UIColor(red: 0/255, green: 35/255, blue: 78/255, alpha: 1)
+//    var resultViewColorUSA:UIColor = UIColor(red: 0/255, green: 35/255, blue: 78/255, alpha: 1)
+    var resultViewColorUSA:UIColor = UIColor(red: 0/255, green: 49/255, blue: 97/255, alpha: 1)
     var resultViewColorMETRIC:UIColor = UIColor(red: 78/255, green: 11/255, blue: 24/255, alpha: 1)
     var switchButtonColorUSA:UIColor = UIColor(red: 0/255, green: 71/255, blue: 155/255, alpha: 1)
     var switchButtonColorMETRIC:UIColor = UIColor(red: 155/255, green: 23/255, blue: 49/255, alpha: 1)

@@ -117,7 +117,7 @@
 					818780E11E5F8247008C67F6 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = FA5XC4H279;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -283,12 +283,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = FA5XC4H279;
 				INFOPLIST_FILE = William/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.elithapps.eleven;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "76bae0b6-2df7-4127-96a0-637a7fcb4ecb";
+				PROVISIONING_PROFILE_SPECIFIER = "Eleven App Store";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -297,12 +299,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = FA5XC4H279;
 				INFOPLIST_FILE = William/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.elithapps.eleven;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "76bae0b6-2df7-4127-96a0-637a7fcb4ecb";
+				PROVISIONING_PROFILE_SPECIFIER = "Eleven App Store";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
