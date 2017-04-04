@@ -653,6 +653,8 @@
                         <outlet property="button7" destination="av1-4s-hkv" id="xgk-xD-LLi"/>
                         <outlet property="button8" destination="1yv-18-13q" id="e2P-3R-cCl"/>
                         <outlet property="button9" destination="UAU-yH-4Lc" id="W5A-Hx-vvV"/>
+                        <outlet property="buttonClear" destination="e3T-gR-mOg" id="Kkh-1d-Qlc"/>
+                        <outlet property="buttonDecimal" destination="OCU-kl-8ra" id="axP-0f-KPJ"/>
                         <outlet property="distanceImage" destination="x1H-5r-iyk" id="t9j-TR-Cit"/>
                         <outlet property="distanceLabel" destination="btY-CK-FUN" id="ysg-bb-R7k"/>
                         <outlet property="distanceLabel1" destination="LS1-ae-ZzW" id="aDF-9E-7sQ"/>

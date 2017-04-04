@@ -54,6 +54,29 @@ enum weightUSA {
     case usTons
 }
 
+extension UIButton {
+    
+    private func imageWithColor(color: UIColor) -> UIImage {
+        let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
+        UIGraphicsBeginImageContext(rect.size)
+        let context = UIGraphicsGetCurrentContext()
+        
+        context!.setFillColor(color.cgColor)
+        context!.fill(rect)
+        
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return image!
+        
+        }
+    
+    func setBackgroundColor(color: UIColor, forUIControlState state: UIControlState) {
+        self.setBackgroundImage(imageWithColor(color: color), for: state)
+    }
+
+}
+
 class ViewController: UIViewController {
     @IBOutlet weak var tempImage: UIImageView!
     @IBOutlet weak var distanceImage: UIImageView!
@@ -103,6 +126,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var button7: UIButton!
     @IBOutlet weak var button8: UIButton!
     @IBOutlet weak var button9: UIButton!
+    @IBOutlet weak var buttonDecimal: UIButton!
+    @IBOutlet weak var buttonClear: UIButton!
     
     
     var labelString:String = "0"
@@ -150,6 +175,23 @@ class ViewController: UIViewController {
         button8.titleEdgeInsets = UIEdgeInsets(top: 4, left: 0, bottom: 0, right: 0)
         button9.titleEdgeInsets = UIEdgeInsets(top: 4, left: 0, bottom: 0, right: 0)
         
+        button0.setBackgroundColor(color: activeButtonBackColor, forUIControlState: .highlighted)
+        button1.setBackgroundColor(color: activeButtonBackColor, forUIControlState: .highlighted)
+        button2.setBackgroundColor(color: activeButtonBackColor, forUIControlState: .highlighted)
+        button3.setBackgroundColor(color: activeButtonBackColor, forUIControlState: .highlighted)
+        button4.setBackgroundColor(color: activeButtonBackColor, forUIControlState: .highlighted)
+        button5.setBackgroundColor(color: activeButtonBackColor, forUIControlState: .highlighted)
+        button6.setBackgroundColor(color: activeButtonBackColor, forUIControlState: .highlighted)
+        button7.setBackgroundColor(color: activeButtonBackColor, forUIControlState: .highlighted)
+        button8.setBackgroundColor(color: activeButtonBackColor, forUIControlState: .highlighted)
+        button9.setBackgroundColor(color: activeButtonBackColor, forUIControlState: .highlighted)
+        buttonDecimal.setBackgroundColor(color: activeButtonBackColor, forUIControlState: .highlighted)
+        buttonClear.setBackgroundColor(color: activeButtonBackColor, forUIControlState: .highlighted)
+        
+        tempLabel.setBackgroundColor(color: UIColor.black, forUIControlState: .highlighted)
+        distanceLabel.setBackgroundColor(color: UIColor.black, forUIControlState: .highlighted)
+        volumeLabel.setBackgroundColor(color: UIColor.black, forUIControlState: .highlighted)
+        weightLabel.setBackgroundColor(color: UIColor.black, forUIControlState: .highlighted)
         
         
         mainLabel.baselineAdjustment = .alignCenters
