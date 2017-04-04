@@ -117,12 +117,15 @@ class ViewController: UIViewController {
     var currentWeightUSA:weightUSA = .lbp
     var havingFraction:Bool = false
     
-    var resultViewColorUSA:UIColor = UIColor(red: 0/255, green: 22/255, blue: 52/255, alpha: 1)
-    var resultViewColorMETRIC:UIColor = UIColor(red: 52/255, green: 6/255, blue: 15/255, alpha: 1)
-    var switchButtonColorUSA:UIColor = UIColor(red: 0/255, green: 46/255, blue: 104/255, alpha: 1)
-    var switchButtonColorMETRIC:UIColor = UIColor(red: 103/255, green: 15/255, blue: 31/255, alpha: 1)
+    var resultViewColorUSA:UIColor = UIColor(red: 0/255, green: 35/255, blue: 78/255, alpha: 1)
+    var resultViewColorMETRIC:UIColor = UIColor(red: 78/255, green: 11/255, blue: 24/255, alpha: 1)
+    var switchButtonColorUSA:UIColor = UIColor(red: 0/255, green: 71/255, blue: 155/255, alpha: 1)
+    var switchButtonColorMETRIC:UIColor = UIColor(red: 155/255, green: 23/255, blue: 49/255, alpha: 1)
     var tintColorUSA:UIColor = UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1)
     var tintColorMETRIC:UIColor = UIColor(red: 255/255, green: 45/255, blue: 85/255, alpha: 1)
+    
+    var activeButtonBackColor:UIColor = UIColor(red: 204/255, green: 204/255, blue: 204/255, alpha: 1)
+    
     
     
     override func viewDidLoad() {
@@ -552,7 +555,11 @@ class ViewController: UIViewController {
         
     }
     
+
+    
     @IBAction func didPressNumber(_ sender: UIButton) {
+        sender.backgroundColor = UIColor.white
+        
         let stringValue:String? = sender.titleLabel?.text
         
         // Check if there is a dot yet
