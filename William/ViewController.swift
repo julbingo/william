@@ -54,6 +54,9 @@ enum weightUSA {
     case usTons
 }
 
+
+//Giving the button different background color based on state
+
 extension UIButton {
     
     private func imageWithColor(color: UIColor) -> UIImage {
@@ -158,13 +161,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        /********** ADJUSTING KERNING
-        let attributedString = NSMutableAttributedString(string: "384")
-        attributedString.addAttribute(NSKernAttributeName, value: CGDouble(-4.0), range: NSRange(location: 0, length: 3))
-        mainLabel.attributedText = attributedString
-        ***********/
-        
-        
+        // Fixing vertical alignment of button labels
         button0.titleEdgeInsets = UIEdgeInsets(top: 4, left: 0, bottom: 0, right: 0)
         button1.titleEdgeInsets = UIEdgeInsets(top: 4, left: 0, bottom: 0, right: 0)
         button2.titleEdgeInsets = UIEdgeInsets(top: 4, left: 0, bottom: 0, right: 0)
@@ -175,7 +172,8 @@ class ViewController: UIViewController {
         button7.titleEdgeInsets = UIEdgeInsets(top: 4, left: 0, bottom: 0, right: 0)
         button8.titleEdgeInsets = UIEdgeInsets(top: 4, left: 0, bottom: 0, right: 0)
         button9.titleEdgeInsets = UIEdgeInsets(top: 4, left: 0, bottom: 0, right: 0)
-        
+
+        // Adding touch highlights on buttons
         button0.setBackgroundColor(color: activeButtonBackColor, forUIControlState: .highlighted)
         button1.setBackgroundColor(color: activeButtonBackColor, forUIControlState: .highlighted)
         button2.setBackgroundColor(color: activeButtonBackColor, forUIControlState: .highlighted)
@@ -188,13 +186,12 @@ class ViewController: UIViewController {
         button9.setBackgroundColor(color: activeButtonBackColor, forUIControlState: .highlighted)
         buttonDecimal.setBackgroundColor(color: activeButtonBackColor, forUIControlState: .highlighted)
         buttonClear.setBackgroundColor(color: activeButtonBackColor, forUIControlState: .highlighted)
-        
         tempLabel.setBackgroundColor(color: UIColor.black, forUIControlState: .highlighted)
         distanceLabel.setBackgroundColor(color: UIColor.black, forUIControlState: .highlighted)
         volumeLabel.setBackgroundColor(color: UIColor.black, forUIControlState: .highlighted)
         weightLabel.setBackgroundColor(color: UIColor.black, forUIControlState: .highlighted)
         
-        
+        // Vertically center contents of main label
         mainLabel.baselineAdjustment = .alignCenters
         
         updateText()
@@ -349,8 +346,53 @@ class ViewController: UIViewController {
         
     }
     
-    
+    //  SEE DECIMALS      print(resultString, " ", resultString.characters.count, " ", decimalPosition)
 
+    
+    
+    // Limits number of decimals based on number of characters in result
+    func setNumberOfFraction(result: Double) -> String {
+        
+        let formatter:NumberFormatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        let numx = NSNumber(value: result)
+        let resultString = String(result)
+        let decimalIndex = resultString.characters.index(of: ".")
+        let decimalPosition = resultString.distance(from: resultString.startIndex, to: decimalIndex!)
+        
+        if (decimalPosition > 4) {
+            formatter.maximumFractionDigits = 0
+        } else if (decimalPosition > 3) {
+            formatter.maximumFractionDigits = 1
+        } else {
+            formatter.maximumFractionDigits = 2
+        }
+        
+//        let finalString: String = formatter.string(from: numx)!
+        return formatter.string(from: numx)!
+        
+    }
+
+    func setImportanceOpacity(label: UILabel) -> CGFloat {
+        let resultString = label.text!
+        let valuedOpacity: CGFloat
+//        let decimalIndex = resultString.characters.index(of: ".")
+//        let decimalPosition = resultString.distance(from: resultString.startIndex, to: decimalIndex!)
+        
+        switch resultString.characters.count {
+        case 1:
+            if resultString == "0" {
+                valuedOpacity = 0.1
+            } else {
+                valuedOpacity = 1
+            }
+        default:
+            valuedOpacity = 1
+        }
+        
+        return valuedOpacity
+        
+    }
 
     
     func updateText() {
@@ -363,7 +405,7 @@ class ViewController: UIViewController {
         
         let formatter:NumberFormatter = NumberFormatter()
         formatter.numberStyle = .decimal
-        var numx:NSNumber = NSNumber(value: labelDouble)
+        let numx:NSNumber = NSNumber(value: labelDouble)
         var newLabel: String = ""
         
         
@@ -372,38 +414,17 @@ class ViewController: UIViewController {
         if (havingFraction) {
             newLabel = formatter.string(from: numx)!
             newLabel = (mainLabel.text?.appending("."))!
-//            mainLabel.text = formatter.string(from: numx)
-//            mainLabel.text = mainLabel.text?.appending(".")
-            
-
-            
             havingFraction = false
         } else {
-//            mainLabel.text = formatter.string(from: numx)
             newLabel = formatter.string(from: numx)!
-            
-            
         }
+
         mainLabel.text = newLabel
 
         // Kerning the main label
         mainLabel.attributedText = kernLabel(label: mainLabel, kernValue: -4.0)
         
- 
-        // Kerning the main label
-//        let attributedString = NSMutableAttributedString(string: mainLabel.text!)
-//        attributedString.addAttribute(NSKernAttributeName, value: CGFloat(-4.0), range: NSRange(location: 0, length: attributedString.length))
-//        mainLabel.attributedText = attributedString
-        
-
-        
-        
-        
-        
-        formatter.maximumFractionDigits = 1
-        
-        // --- Calculate Temperatures
-        
+        // Calculate Temperatures
         var temp1:Double = 0
         var temp2:Double = 0
         var distance1:Double = 0
@@ -542,36 +563,36 @@ class ViewController: UIViewController {
             }
             
         }
+        
         // Update Temperature Labels
-        numx = NSNumber(value: temp1)
-        tempLabel1.text = formatter.string(from: numx)
-        numx = NSNumber(value: temp2)
-        tempLabel2.text = formatter.string(from: numx)
+        tempLabel1.text = setNumberOfFraction(result: temp1)
+        tempLabel1.textColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: setImportanceOpacity(label: tempLabel1))
+        tempLabel2.text = setNumberOfFraction(result: temp2)
+        tempLabel2.textColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: setImportanceOpacity(label: tempLabel2))
         
         // Update Distance Labels
-        numx = NSNumber(value: distance1)
-        distanceLabel1.text = formatter.string(from: numx)
-        numx = NSNumber(value: distance2)
-        distanceLabel2.text = formatter.string(from: numx)
-        numx = NSNumber(value: distance3)
-        distanceLabel3.text = formatter.string(from: numx)
+        distanceLabel1.text = setNumberOfFraction(result: distance1)
+        distanceLabel1.textColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: setImportanceOpacity(label: distanceLabel1))
+        distanceLabel2.text = setNumberOfFraction(result: distance2)
+        distanceLabel2.textColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: setImportanceOpacity(label: distanceLabel2))
+        distanceLabel3.text = setNumberOfFraction(result: distance3)
+        distanceLabel3.textColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: setImportanceOpacity(label: distanceLabel3))
         
         // Update Volume Labels
-        numx = NSNumber(value: volume1)
-        volumeLabel1.text = formatter.string(from: numx)
-        numx = NSNumber(value: volume2)
-        volumeLabel2.text = formatter.string(from: numx)
-        numx = NSNumber(value: volume3)
-        volumeLabel3.text = formatter.string(from: numx)
+        volumeLabel1.text = setNumberOfFraction(result: volume1)
+        volumeLabel1.textColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: setImportanceOpacity(label: volumeLabel1))
+        volumeLabel2.text = setNumberOfFraction(result: volume2)
+        volumeLabel2.textColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: setImportanceOpacity(label: volumeLabel2))
+        volumeLabel3.text = setNumberOfFraction(result: volume3)
+        volumeLabel3.textColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: setImportanceOpacity(label: volumeLabel3))
 
         // Update Weight Labels
-        numx = NSNumber(value: weight1)
-        weightLabel1.text = formatter.string(from: numx)
-        numx = NSNumber(value: weight2)
-        weightLabel2.text = formatter.string(from: numx)
-        numx = NSNumber(value: weight3)
-        weightLabel3.text = formatter.string(from: numx)
-
+        weightLabel1.text = setNumberOfFraction(result: weight1)
+        weightLabel1.textColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: setImportanceOpacity(label: weightLabel1))
+        weightLabel2.text = setNumberOfFraction(result: weight2)
+        weightLabel2.textColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: setImportanceOpacity(label: weightLabel2))
+        weightLabel3.text = setNumberOfFraction(result: weight3)
+        weightLabel3.textColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: setImportanceOpacity(label: weightLabel3))
         
         //Kerning all result labels
         tempLabel1.attributedText = kernLabel(label: tempLabel1, kernValue: -1.0)
