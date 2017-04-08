@@ -375,20 +375,42 @@ class ViewController: UIViewController {
 
     func setImportanceOpacity(label: UILabel) -> CGFloat {
         let resultString = label.text!
+        
+//        let resultInt: Int = Int(resultString)!
+        
+//        print(resultString)
+        
+        
         let valuedOpacity: CGFloat
 //        let decimalIndex = resultString.characters.index(of: ".")
 //        let decimalPosition = resultString.distance(from: resultString.startIndex, to: decimalIndex!)
         
-        switch resultString.characters.count {
-        case 1:
+        if (resultString.characters.count == 1) {
             if resultString == "0" {
-                valuedOpacity = 0.1
+                valuedOpacity = 0.2
             } else {
                 valuedOpacity = 1
             }
-        default:
+        } else if (resultString.characters.count > 7) {
+            valuedOpacity = 0.2
+        } else {
             valuedOpacity = 1
         }
+        
+        
+//        switch resultString.characters.count {
+//        case 1:
+//            if resultString == "0" {
+//                valuedOpacity = 0.2
+//            } else {
+//                valuedOpacity = 1
+//            }
+//        case 5:
+//            valuedOpacity = 0.2
+//            
+//        default:
+//            valuedOpacity = 1
+//        }
         
         return valuedOpacity
         
@@ -564,35 +586,93 @@ class ViewController: UIViewController {
             
         }
         
+        
         // Update Temperature Labels
         tempLabel1.text = setNumberOfFraction(result: temp1)
-        tempLabel1.textColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: setImportanceOpacity(label: tempLabel1))
+        tempLabel1.textColor = UIColor.white.withAlphaComponent(setImportanceOpacity(label: tempLabel1))
+        if (currentDirection == .SWEtoUSA) {
+            tempSublabel1.textColor = tintColorUSA.withAlphaComponent(setImportanceOpacity(label: tempLabel1)*2)
+        } else {
+            tempSublabel1.textColor = tintColorMETRIC.withAlphaComponent(setImportanceOpacity(label: tempLabel1)*2)
+        }
+        
         tempLabel2.text = setNumberOfFraction(result: temp2)
-        tempLabel2.textColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: setImportanceOpacity(label: tempLabel2))
+        tempLabel2.textColor = UIColor.white.withAlphaComponent(setImportanceOpacity(label: tempLabel2))
+        if (currentDirection == .SWEtoUSA) {
+            tempSublabel2.textColor = tintColorUSA.withAlphaComponent(setImportanceOpacity(label: tempLabel2)*2)
+        } else {
+            tempSublabel2.textColor = tintColorMETRIC.withAlphaComponent(setImportanceOpacity(label: tempLabel2)*2)
+        }
         
         // Update Distance Labels
         distanceLabel1.text = setNumberOfFraction(result: distance1)
-        distanceLabel1.textColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: setImportanceOpacity(label: distanceLabel1))
+        distanceLabel1.textColor = UIColor.white.withAlphaComponent(setImportanceOpacity(label: distanceLabel1))
+        if (currentDirection == .SWEtoUSA) {
+            distanceSublabel1.textColor = tintColorUSA.withAlphaComponent(setImportanceOpacity(label: distanceLabel1)*2)
+        } else {
+            distanceSublabel1.textColor = tintColorMETRIC.withAlphaComponent(setImportanceOpacity(label: distanceLabel1)*2)
+        }
         distanceLabel2.text = setNumberOfFraction(result: distance2)
-        distanceLabel2.textColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: setImportanceOpacity(label: distanceLabel2))
+        distanceLabel2.textColor = UIColor.white.withAlphaComponent(setImportanceOpacity(label: distanceLabel2))
+        if (currentDirection == .SWEtoUSA) {
+            distanceSublabel2.textColor = tintColorUSA.withAlphaComponent(setImportanceOpacity(label: distanceLabel2)*2)
+        } else {
+            distanceSublabel2.textColor = tintColorMETRIC.withAlphaComponent(setImportanceOpacity(label: distanceLabel2)*2)
+        }
         distanceLabel3.text = setNumberOfFraction(result: distance3)
-        distanceLabel3.textColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: setImportanceOpacity(label: distanceLabel3))
+        distanceLabel3.textColor = UIColor.white.withAlphaComponent(setImportanceOpacity(label: distanceLabel3))
+        if (currentDirection == .SWEtoUSA) {
+            distanceSublabel3.textColor = tintColorUSA.withAlphaComponent(setImportanceOpacity(label: distanceLabel3)*2)
+        } else {
+            distanceSublabel3.textColor = tintColorMETRIC.withAlphaComponent(setImportanceOpacity(label: distanceLabel3)*2)
+        }
         
         // Update Volume Labels
         volumeLabel1.text = setNumberOfFraction(result: volume1)
-        volumeLabel1.textColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: setImportanceOpacity(label: volumeLabel1))
+        volumeLabel1.textColor = UIColor.white.withAlphaComponent(setImportanceOpacity(label: volumeLabel1))
+        if (currentDirection == .SWEtoUSA) {
+            volumeSublabel1.textColor = tintColorUSA.withAlphaComponent(setImportanceOpacity(label: volumeLabel1)*2)
+        } else {
+            volumeSublabel1.textColor = tintColorMETRIC.withAlphaComponent(setImportanceOpacity(label: volumeLabel1)*2)
+        }
         volumeLabel2.text = setNumberOfFraction(result: volume2)
-        volumeLabel2.textColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: setImportanceOpacity(label: volumeLabel2))
+        volumeLabel2.textColor = UIColor.white.withAlphaComponent(setImportanceOpacity(label: volumeLabel2))
+        if (currentDirection == .SWEtoUSA) {
+            volumeSublabel2.textColor = tintColorUSA.withAlphaComponent(setImportanceOpacity(label: volumeLabel2)*2)
+        } else {
+            volumeSublabel2.textColor = tintColorMETRIC.withAlphaComponent(setImportanceOpacity(label: volumeLabel2)*2)
+        }
         volumeLabel3.text = setNumberOfFraction(result: volume3)
-        volumeLabel3.textColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: setImportanceOpacity(label: volumeLabel3))
+        volumeLabel3.textColor = UIColor.white.withAlphaComponent(setImportanceOpacity(label: volumeLabel3))
+        if (currentDirection == .SWEtoUSA) {
+            volumeSublabel3.textColor = tintColorUSA.withAlphaComponent(setImportanceOpacity(label: volumeLabel3)*2)
+        } else {
+            volumeSublabel3.textColor = tintColorMETRIC.withAlphaComponent(setImportanceOpacity(label: volumeLabel3)*2)
+        }
 
         // Update Weight Labels
         weightLabel1.text = setNumberOfFraction(result: weight1)
-        weightLabel1.textColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: setImportanceOpacity(label: weightLabel1))
+        weightLabel1.textColor = UIColor.white.withAlphaComponent(setImportanceOpacity(label: weightLabel1))
+        if (currentDirection == .SWEtoUSA) {
+            weightSublabel1.textColor = tintColorUSA.withAlphaComponent(setImportanceOpacity(label: weightLabel1)*2)
+        } else {
+            weightSublabel1.textColor = tintColorMETRIC.withAlphaComponent(setImportanceOpacity(label: weightLabel1)*2)
+        }
         weightLabel2.text = setNumberOfFraction(result: weight2)
-        weightLabel2.textColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: setImportanceOpacity(label: weightLabel2))
+        weightLabel2.textColor = UIColor.white.withAlphaComponent(setImportanceOpacity(label: weightLabel2))
+        if (currentDirection == .SWEtoUSA) {
+            weightSublabel2.textColor = tintColorUSA.withAlphaComponent(setImportanceOpacity(label: weightLabel2)*2)
+        } else {
+            weightSublabel2.textColor = tintColorMETRIC.withAlphaComponent(setImportanceOpacity(label: weightLabel2)*2)
+        }
         weightLabel3.text = setNumberOfFraction(result: weight3)
-        weightLabel3.textColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: setImportanceOpacity(label: weightLabel3))
+        weightLabel3.textColor = UIColor.white.withAlphaComponent(setImportanceOpacity(label: weightLabel3))
+        if (currentDirection == .SWEtoUSA) {
+            weightSublabel3.textColor = tintColorUSA.withAlphaComponent(setImportanceOpacity(label: weightLabel3)*2)
+        } else {
+            weightSublabel3.textColor = tintColorMETRIC.withAlphaComponent(setImportanceOpacity(label: weightLabel3)*2)
+        }
+        
         
         //Kerning all result labels
         tempLabel1.attributedText = kernLabel(label: tempLabel1, kernValue: -1.0)
